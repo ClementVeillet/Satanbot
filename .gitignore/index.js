@@ -12,7 +12,7 @@ bot.on('message', function (message)
 {
 if (message.content.startsWith(prefix + 'help')){
 	message.delete()
-	message.author.send('**Voici la liste des commandes:**\n **%help**: donne la liste des commandes \n **%invite**: donne un lien d invitation pour le discord \n **%avatar**: pour voir votre avatar \n **%ping**: pour voir votre ping \n **%test:** test si le bot est activé.')
+	message.author.send('**Voici la liste des commandes:**\n **%help**: donne la liste des commandes en privé \n **%invite**: donne un lien d invitation pour le discord \n **%avatar**: pour voir votre avatar \n **%ping**: pour voir votre ping \n **%test:** test si le bot est activé \n **%serverhelp:**aide du bot')
 	message.reply('La commande pour vous aidez vous a été envoyé en privé')
 }
 if (message.content.startsWith(prefix + 'invite')){
@@ -32,7 +32,7 @@ if (message.content.startsWith(prefix + 'ping')){
       message.channel.send('Ok :white_check_mark:')
 }
   if (message.content.startsWith(prefix + 'serverhelp')){
-  	message.channel.send('**Voici la liste des commandes:**\n **%help**: donne la liste des commandes \n **%invite**: donne un lien d invitation pour le discord \n **%avatar**: pour voir votre avatar \n **%ping**: pour voir votre ping \n **SBtest:** test si le bot est activé.')
+  	message.channel.send('**Voici la liste des commandes:**\n **%help**: donne la liste des commandes en privé \n **%invite**: donne un lien d invitation pour le discord \n **%avatar**: pour voir votre avatar \n **%ping**: pour voir votre ping \n **%test:** test si le bot est activé \n **%serverhelp:** aide du bot')
 }	
 });
 bot.on('guildMemberAdd', function (member)
