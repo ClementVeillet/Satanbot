@@ -133,6 +133,50 @@ bot.on("message", async message => {
 
     return message.channel.send(botembed);
   }
+if(cmd === (prefix + 'addrole')){
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Désolé je ne peux pas faire ça.");
+    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    if(!rMember) return message.reply("Utilisateur non trouvé.");
+    let role = args.join(" ").slice(22);
+    if(!role) return message.reply("Specifier le rôle!");
+    let gRole = message.guild.roles.find(`name`, role);
+    if(!gRole) return message.reply("Rôle non trouvé!");
 
+    if(rMember.roles.has(gRole.id)) return message.reply("Cette utilisateur a déja ce rôle!");
+    await(rMember.addRole(gRole.id));
+
+  try{
+    await rMember.send(`Félicitations vous avez bien reçu le rôle ${gRole.name}`)
+  }catch(e){
+    message.channel.send(`Félicitations à <@${rMember.id}>, pour avoir bien reçu le rôle ${gRole.name}.`)
+  }
+}
+
+module.exports.help = {
+  name: "addrole"
+}
+
+if(cmd === (prefix + 'remooverole')){
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Désolé je ne peux pas faire ça..");
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if(!rMember) return message.reply("Utilisateur non trouvé.");
+  let role = args.join(" ").slice(22);
+  if(!role) return message.reply("Specifier un rôle!");
+  let gRole = message.guild.roles.find(`name`, role);
+  if(!gRole) return message.reply("Rôle non trouvé!");
+
+  if(!rMember.roles.has(gRole.id)) return message.reply("Cette Uilisateur n'a pas ce rôle!");
+  await(rMember.removeRole(gRole.id));
+
+  try{
+    await rMember.send(`RIP, vous avez perdu le rôle ${gRole.name}.`)
+  }catch(e){
+    message.channel.send(`RIP à <@${rMember.id}>, qui à perdu le rôle ${gRole.name}.`)
+  }
+}
+
+module.exports.help = {
+  name: "removerole"
+}
 });
 bot.login(process.env.TOKEN) 
