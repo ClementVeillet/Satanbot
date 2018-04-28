@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 
-var prefix = '§'
+var prefix = '@'
 
 bot.on('ready', function () {
     bot.user.setGame('THE HELL');
@@ -12,7 +12,7 @@ bot.on('message', function (message)
 {
 if (message.content.startsWith(prefix + 'help')){
 	message.delete()
-	message.channel.send('**Voici la liste des commandes:**\n **§help**: donne la liste des commandes \n **§invite**: donne un lien d invitation pour le discord \n **§avatar**: pour voir votre avatar \n **§ping**: pour voir votre ping')
+	message.channel.send('**Voici la liste des commandes:**\n **@help**: donne la liste des commandes \n **@invite**: donne un lien d invitation pour le discord \n **@avatar**: pour voir votre avatar \n **@ping**: pour voir votre ping \n **@test:** test si le bot est activé.')
 }
 if (message.content.startsWith(prefix + 'invite')){
 	message.delete()
