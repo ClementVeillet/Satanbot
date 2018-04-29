@@ -57,7 +57,7 @@ bot.on("message", async message => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Utilisateur non trouvé.");
     let kReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Je ne peux pas faire ça!");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peut être kické!")
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
@@ -82,7 +82,7 @@ bot.on("message", async message => {
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Utilisateur non trouvé.");
     let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Je ne peux pas faire ça!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peut être kické!");
 
     let banEmbed = new Discord.RichEmbed()
