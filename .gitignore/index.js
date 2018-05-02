@@ -4,7 +4,7 @@ const bot = new Discord.Client()
 var prefix = '%'
 
 bot.on('ready', function () {
-    bot.user.setGame('THE HELL');
+    bot.user.setGame('je suis gay');
     console.log("Connected");
 });
 
